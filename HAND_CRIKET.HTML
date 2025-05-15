@@ -11,30 +11,49 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            background-color: #00008B; /* Dark blue background */
-            color: white; /* White text color for better contrast */
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+            position: relative;
         }
+        
+        #video-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+        }
+
         .game-container {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            color: black; /* Black text color inside the container */
+            color: black;
+            position: relative;
         }
+
         input {
             padding: 10px;
             margin: 10px;
             width: 60px;
             text-align: center;
         }
+
         button {
             padding: 10px 20px;
             margin-top: 10px;
+            cursor: pointer;
         }
     </style>
-    <script>
+     <script>
         document.addEventListener("DOMContentLoaded", function() {
             let a = Math.floor(Math.random() * 6) + 1;
             console.log("Random number (a):", a); // For debugging purposes
@@ -83,6 +102,13 @@
     </script>
 </head>
 <body>
+    <!-- Updated video section with proper GitHub URL -->
+    <video autoplay muted loop playsinline id="video-background">
+        <source src="https://github.com/ADARSH-TKD/GAMES/raw/main/vlc-record-2025-04-18-21h08m31s-videoplayback.mp4-.mp4" type="video/mp4">
+        <!-- Fallback image if video fails to load -->
+        <img src="fallback-image.jpg" alt="Background" style="width: 100%; height: 100%; object-fit: cover;">
+    </video>
+
     <div class="game-container">
         <h1>𝙷𝙰𝙽𝙳 𝙲𝚁𝙸𝙲𝙺𝙴𝚃</h1>
         <p>Enter a number (between 1 and 6):</p>
@@ -91,5 +117,12 @@
         <p id="total">Total score: 0</p>
         <button id="playAgain" style="display:none;">Play Again</button>
     </div>
+
+    <script>
+        // Your existing JavaScript remains the same
+        document.addEventListener("DOMContentLoaded", function() {
+            // ... [existing game logic] ...
+        });
+    </script>
 </body>
 </html>
